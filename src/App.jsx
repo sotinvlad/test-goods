@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import goods from './assets/goods.json';
 import styles from './App.module.scss';
@@ -8,6 +8,9 @@ import Header from './components/Header/Header';
 
 function App() {
     const [items, setItems] = useState(goods);
+    useEffect(() => {
+        setItems(goods);
+    }, []);
     return (
         <div className={styles.App}>
             <Header typeOfSorting={'default'} />
