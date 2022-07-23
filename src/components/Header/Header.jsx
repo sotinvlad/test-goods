@@ -1,3 +1,5 @@
+import React from 'react';
+
 import getNameOfSortingFromType from '../../helpers/getNameOfSortingFromType';
 import arrowDown from './../../assets/Arrow_down.png';
 import styles from './Header.module.scss';

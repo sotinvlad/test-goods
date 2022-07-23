@@ -1,3 +1,5 @@
+import React from 'react';
+
 import GoodItem from '../GoodItem/GoodItem';
 import styles from './GoodsList.module.scss';
 

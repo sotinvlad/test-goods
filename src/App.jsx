@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import goods from './assets/goods.json';
 import styles from './App.module.scss';
