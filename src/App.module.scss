@@ -13,3 +13,11 @@
     display: flex;
     gap: 16px;
 }
+
+@media screen and (max-width: 768px) {
+    .MainContent {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
