@@ -12,6 +12,7 @@ import sortItems from './helpers/sortItems';
 function App() {
     const [items, setItems] = useState(getItems());
     const [sortingBy, setSortingBy] = useState('default');
+    const [showNotification, setShowNotification] = useState(false);
     const deleteItem = (id) => {
         const newArrayOfItems = deleteItemById(id, items);
         setItems(sortItems(newArrayOfItems, sortingBy));
@@ -34,8 +35,16 @@ function App() {
         <div className={styles.App}>
             <Header sortingBy={sortingBy} setSortingBy={setSortingBy} />
             <div className={styles.MainContent}>
-                <Form addItem={addItem} />
+                <Form
+                    addItem={addItem}
+                    setShowNotification={setShowNotification}
+                />
                 <GoodsList items={items} deleteItem={deleteItem} />
+            </div>
+            <div
+                className={styles.Notification}
+                style={showNotification ? { opacity: 1 } : {}}>
+                <span>Товар успешно добавлен!</span>
             </div>
         </div>
     );

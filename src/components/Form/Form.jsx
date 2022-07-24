@@ -4,7 +4,7 @@ import formatPrice from '../../helpers/formatPrice';
 import validatePrice from '../../helpers/validatePrice';
 import styles from './Form.module.scss';
 
-const Form = ({ addItem }) => {
+const Form = ({ addItem, setShowNotification }) => {
     const [itemTitle, setItemTitle] = useState('');
     const [itemDescription, setItemDescription] = useState('');
     const [pictureLink, setPictureLink] = useState('');
@@ -28,6 +28,10 @@ const Form = ({ addItem }) => {
         setPictureLink('');
         setItemPrice('');
         setTouched([false, false, false]);
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 1000);
     };
     return (
         <div className={styles.Form}>
