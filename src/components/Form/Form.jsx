@@ -4,7 +4,7 @@ import formatPrice from '../../helpers/formatPrice';
 import validatePrice from '../../helpers/validatePrice';
 import styles from './Form.module.scss';
 
-const Form = () => {
+const Form = ({ addItem }) => {
     const [itemTitle, setItemTitle] = useState('');
     const [itemDescription, setItemDescription] = useState('');
     const [pictureLink, setPictureLink] = useState('');
@@ -14,6 +14,20 @@ const Form = () => {
         let newTouched = [...touched];
         newTouched[id] = true;
         setTouched(newTouched);
+    };
+    const onSubmit = () => {
+        const itemData = {
+            itemTitle: itemTitle,
+            itemDescription: itemDescription,
+            pictureLink: pictureLink,
+            itemPrice: itemPrice,
+        };
+        addItem(itemData);
+        setItemTitle('');
+        setItemDescription('');
+        setPictureLink('');
+        setItemPrice('');
+        setTouched([false, false, false]);
     };
     return (
         <div className={styles.Form}>
@@ -89,7 +103,8 @@ const Form = () => {
                     fieldIsEmpty(itemTitle) ||
                     fieldIsEmpty(pictureLink) ||
                     fieldIsEmpty(itemPrice)
-                }>
+                }
+                onClick={() => onSubmit()}>
                 Добавить товар
             </button>
         </div>
