@@ -3,42 +3,42 @@
         "id": 1,
         "itemTitle": "Наименование товара",
         "itemDescription": "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-        "pictureLink": "",
+        "pictureLink": "basicItemPicture",
         "itemPrice": 10000
     },
     {
         "id": 2,
         "itemTitle": "Наименование товара",
         "itemDescription": "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-        "pictureLink": "",
+        "pictureLink": "basicItemPicture",
         "itemPrice": 10000
     },
     {
         "id": 3,
         "itemTitle": "Наименование товара",
         "itemDescription": "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-        "pictureLink": "",
+        "pictureLink": "basicItemPicture",
         "itemPrice": 10000
     },
     {
         "id": 4,
         "itemTitle": "Наименование товара",
         "itemDescription": "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-        "pictureLink": "",
+        "pictureLink": "basicItemPicture",
         "itemPrice": 10000
     },
     {
         "id": 5,
         "itemTitle": "Наименование товара",
         "itemDescription": "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-        "pictureLink": "",
+        "pictureLink": "basicItemPicture",
         "itemPrice": 10000
     },
     {
         "id": 6,
         "itemTitle": "Наименование товара",
         "itemDescription": "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
-        "pictureLink": "",
+        "pictureLink": "basicItemPicture",
         "itemPrice": 10000
     }
 ]
