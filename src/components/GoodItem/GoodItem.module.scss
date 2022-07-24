@@ -1,6 +1,7 @@
 .GoodItem {
     width: 332px;
     height: 423px;
+    position: relative;
     background: #fffefb;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
         0px 6px 10px rgba(0, 0, 0, 0.02);
@@ -11,7 +12,9 @@
     cursor: pointer;
     transition: 0.25s ease;
     &:hover {
-        opacity: 0.7;
+        .DeleteButton {
+            opacity: 1;
+        }
     }
     img {
         width: 332px;
@@ -47,4 +50,27 @@
     margin: 16px;
     margin-bottom: 24px;
     color: #3f3f3f;
+}
+
+.DeleteButton {
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    background: #ff8484;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    &:hover {
+        background: #ff8484a9;
+    }
+    img {
+        width: 16px;
+        height: 16px;
+    }
 }
