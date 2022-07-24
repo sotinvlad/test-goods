@@ -7,16 +7,18 @@ import Header from './components/Header/Header';
 import deleteItemById from './helpers/deleteItemById';
 import addItemToItems from './helpers/addItemToItems';
 import getItems from './helpers/getItems';
+import sortItems from './helpers/sortItems';
 
 function App() {
     const [items, setItems] = useState(getItems());
+    const [sortingBy, setSortingBy] = useState('default');
     const deleteItem = (id) => {
         const newArrayOfItems = deleteItemById(id, items);
-        setItems(newArrayOfItems);
+        setItems(sortItems(newArrayOfItems, sortingBy));
     };
     const addItem = (itemData) => {
         const newArrayOfItems = addItemToItems(itemData, items);
-        setItems(newArrayOfItems);
+        setItems(sortItems(newArrayOfItems, sortingBy));
     };
     useEffect(() => {
         if (items.length > 0) {
@@ -25,9 +27,12 @@ function App() {
             localStorage.removeItem('goods');
         }
     }, [items]);
+    useEffect(() => {
+        setItems((items) => sortItems(items, sortingBy));
+    }, [sortingBy]);
     return (
         <div className={styles.App}>
-            <Header typeOfSorting={'default'} />
+            <Header sortingBy={sortingBy} setSortingBy={setSortingBy} />
             <div className={styles.MainContent}>
                 <Form addItem={addItem} />
                 <GoodsList items={items} deleteItem={deleteItem} />
