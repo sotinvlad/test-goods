@@ -11,7 +11,7 @@
     justify-content: space-between;
     cursor: pointer;
     transition: 0.25s ease;
-    overflow: hidden;
+
     &:hover {
         .DeleteButton {
             opacity: 1;
@@ -21,6 +21,7 @@
         width: 332px;
         height: 200px;
         object-fit: cover;
+        overflow: hidden;
     }
 }
 

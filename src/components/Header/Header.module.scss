@@ -15,7 +15,8 @@
 
 .SortBlock {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     cursor: pointer;
     width: 121.49px;
@@ -24,6 +25,18 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     transition: 0.25s;
+    z-index: 1;
+
+    > div {
+        display: flex;
+        padding-top: 10px;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 8px;
+            height: 6px;
+        }
+    }
     &:hover {
         background-color: #00000064;
         span {
@@ -34,10 +47,36 @@
         margin-left: 5px;
     }
 }
+.SelectList {
+    cursor: pointer;
+    flex-direction: column;
+    margin-top: 1px;
+}
+
+.SortItem {
+    cursor: pointer;
+    width: 121.49px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fffefb;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    transition: 0.25s;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #b4b4b4;
+    &:hover {
+        background-color: #00000064;
+        span {
+            color: #ffffff;
+        }
+    }
+}
 
 .TextOfSortBlock {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
