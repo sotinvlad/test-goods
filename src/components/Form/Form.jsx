@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import fieldIsEmpty from '../../helpers/fieldIsEmpty';
+import inputFieldIsEmpty from '../../helpers/inputFieldIsEmpty';
 import formatPrice from '../../helpers/formatPrice';
 import validatePrice from '../../helpers/validatePrice';
 import styles from './Form.module.scss';
@@ -40,12 +40,14 @@ const Form = ({ addItem, setShowNotification }) => {
             </span>
             <div
                 className={`${
-                    fieldIsEmpty(itemTitle) && touched[0] ? styles.Error : ''
+                    inputFieldIsEmpty(itemTitle) && touched[0]
+                        ? styles.Error
+                        : ''
                 }`}>
                 <input
                     value={itemTitle}
                     className={`${styles.Input} ${
-                        fieldIsEmpty(itemTitle) && touched[0]
+                        inputFieldIsEmpty(itemTitle) && touched[0]
                             ? styles.Error
                             : ''
                     }`}
@@ -66,12 +68,14 @@ const Form = ({ addItem, setShowNotification }) => {
             </span>
             <div
                 className={`${
-                    fieldIsEmpty(pictureLink) && touched[1] ? styles.Error : ''
+                    inputFieldIsEmpty(pictureLink) && touched[1]
+                        ? styles.Error
+                        : ''
                 }`}>
                 <input
                     value={pictureLink}
                     className={`${styles.Input} ${
-                        fieldIsEmpty(pictureLink) && touched[1]
+                        inputFieldIsEmpty(pictureLink) && touched[1]
                             ? styles.Error
                             : ''
                     }`}
@@ -85,12 +89,14 @@ const Form = ({ addItem, setShowNotification }) => {
             </span>
             <div
                 className={`${
-                    fieldIsEmpty(itemPrice) && touched[2] ? styles.Error : ''
+                    inputFieldIsEmpty(itemPrice) && touched[2]
+                        ? styles.Error
+                        : ''
                 }`}>
                 <input
                     value={formatPrice(itemPrice)}
                     className={`${styles.Input} ${
-                        fieldIsEmpty(itemPrice) && touched[2]
+                        inputFieldIsEmpty(itemPrice) && touched[2]
                             ? styles.Error
                             : ''
                     }`}
@@ -104,9 +110,9 @@ const Form = ({ addItem, setShowNotification }) => {
             <button
                 className={styles.Button}
                 disabled={
-                    fieldIsEmpty(itemTitle) ||
-                    fieldIsEmpty(pictureLink) ||
-                    fieldIsEmpty(itemPrice)
+                    inputFieldIsEmpty(itemTitle) ||
+                    inputFieldIsEmpty(pictureLink) ||
+                    inputFieldIsEmpty(itemPrice)
                 }
                 onClick={() => onSubmit()}>
                 Добавить товар

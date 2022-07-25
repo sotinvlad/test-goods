@@ -6,18 +6,18 @@ import GoodsList from './components/GoodsList/GoodsList';
 import Header from './components/Header/Header';
 import deleteItemById from './helpers/deleteItemById';
 import addItemToItems from './helpers/addItemToItems';
-import getItems from './helpers/getItems';
+import getItems, { IGoodItem } from './helpers/getItems';
 import sortItems from './helpers/sortItems';
 
-function App() {
+const App: React.FC = () => {
     const [items, setItems] = useState(getItems());
     const [sortingBy, setSortingBy] = useState('default');
     const [showNotification, setShowNotification] = useState(false);
-    const deleteItem = (id) => {
+    const deleteItem = (id: string): void => {
         const newArrayOfItems = deleteItemById(id, items);
         setItems(sortItems(newArrayOfItems, sortingBy));
     };
-    const addItem = (itemData) => {
+    const addItem = (itemData: IGoodItem): void => {
         const newArrayOfItems = addItemToItems(itemData, items);
         setItems(sortItems(newArrayOfItems, sortingBy));
     };
@@ -48,6 +48,6 @@ function App() {
             </div>
         </div>
     );
-}
+};
 
 export default App;
