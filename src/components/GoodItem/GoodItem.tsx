@@ -7,24 +7,40 @@ import deleteBucket from './../../assets/deleteBucket.png';
 import ItemSkeleton from './ItemSkeleton';
 import formatPrice from '../../helpers/formatPrice';
 
+interface IGoodItemComponent {
+    id: string;
+    itemTitle: string;
+    itemDescription: string;
+    pictureLink: string;
+    itemPrice: number;
+    deleteItem: any;
+}
+
 const GoodItem = forwardRef(
     (
-        { id, itemTitle, itemDescription, pictureLink, itemPrice, deleteItem },
-        ref,
+        {
+            id,
+            itemTitle,
+            itemDescription,
+            pictureLink,
+            itemPrice,
+            deleteItem,
+        }: IGoodItemComponent,
+        ref: any,
     ) => {
         const [imageIsLoaded, setImageIsLoaded] = useState(false);
         const [imageSrc, setImageSrc] = useState(pictureLink);
         const onDeleteButtonClick = () => {
             deleteItem(id);
         };
-        const stylesForLoaded = {
+        const stylesForLoaded: React.CSSProperties = {
             display: 'flex',
         };
         return (
             <div ref={ref}>
                 <div
                     className={styles.GoodItem}
-                    style={imageIsLoaded ? stylesForLoaded : null}>
+                    style={imageIsLoaded ? stylesForLoaded : undefined}>
                     <img
                         src={imageSrc}
                         alt='Изображение товара'
@@ -42,7 +58,7 @@ const GoodItem = forwardRef(
                         {itemDescription}
                     </div>
                     <div className={styles.ItemPrice}>
-                        {formatPrice(itemPrice)} руб.
+                        {formatPrice(itemPrice.toString())} руб.
                     </div>
                     <div
                         className={styles.DeleteButton}

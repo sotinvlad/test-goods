@@ -1,4 +1,6 @@
-const sortItems = (items, sortingBy) => {
+import { IGoodItem } from './getItems';
+
+const sortItems = (items: IGoodItem[], sortingBy: string): IGoodItem[] => {
     let newItems = [...items];
     if (sortingBy === 'default') {
         newItems = newItems.sort((a, b) => {
