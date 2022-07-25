@@ -8,19 +8,23 @@ import deleteItemById from './helpers/deleteItemById';
 import addItemToItems from './helpers/addItemToItems';
 import getItems, { IGoodItem } from './helpers/getItems';
 import sortItems from './helpers/sortItems';
+import Notification from './components/Notification/Notification';
 
 const App: React.FC = () => {
-    const [items, setItems] = useState(getItems());
-    const [sortingBy, setSortingBy] = useState('default');
-    const [showNotification, setShowNotification] = useState(false);
+    const [items, setItems] = useState<IGoodItem[]>(getItems());
+    const [sortingBy, setSortingBy] = useState<string>('default');
+    const [showNotification, setShowNotification] = useState<boolean>(false);
+
     const deleteItem = (id: string): void => {
         const newArrayOfItems = deleteItemById(id, items);
         setItems(sortItems(newArrayOfItems, sortingBy));
     };
+
     const addItem = (itemData: IGoodItem): void => {
         const newArrayOfItems = addItemToItems(itemData, items);
         setItems(sortItems(newArrayOfItems, sortingBy));
     };
+
     useEffect(() => {
         if (items.length > 0) {
             localStorage.setItem('goods', JSON.stringify(items));
@@ -31,6 +35,7 @@ const App: React.FC = () => {
     useEffect(() => {
         setItems((items) => sortItems(items, sortingBy));
     }, [sortingBy]);
+
     return (
         <div className={styles.App}>
             <Header sortingBy={sortingBy} setSortingBy={setSortingBy} />
@@ -41,11 +46,7 @@ const App: React.FC = () => {
                 />
                 <GoodsList items={items} deleteItem={deleteItem} />
             </div>
-            <div
-                className={styles.Notification}
-                style={showNotification ? { opacity: 1 } : {}}>
-                <span>Товар успешно добавлен!</span>
-            </div>
+            <Notification showNotification={showNotification} />
         </div>
     );
 };

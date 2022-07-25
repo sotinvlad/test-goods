@@ -15,22 +15,6 @@
     gap: 16px;
 }
 
-.Notification {
-    width: 240px;
-    height: 50px;
-    position: absolute;
-    opacity: 0;
-    display: flex;
-    top: -10px;
-    right: calc(50% - 120px);
-    border-radius: 20px;
-    z-index: 2;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.25s ease;
-    background-color: rgba(38, 176, 38, 0.525);
-}
-
 @media screen and (max-width: 768px) {
     .MainContent {
         flex-direction: column;

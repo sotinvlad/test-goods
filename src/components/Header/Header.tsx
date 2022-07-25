@@ -6,11 +6,11 @@ import styles from './Header.module.scss';
 
 interface IHeader {
     sortingBy: string;
-    setSortingBy: any;
+    setSortingBy: (sortingBy: string) => void;
 }
 
 const Header: React.FC<IHeader> = ({ sortingBy, setSortingBy }) => {
-    const [showSortingList, setShowSortingList] = useState(false);
+    const [showSortingList, setShowSortingList] = useState<boolean>(false);
     const sortBlockRef = useRef<HTMLDivElement>(null);
 
     const handleOutsideClick = (event: MouseEvent) => {

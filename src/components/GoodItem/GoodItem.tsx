@@ -13,7 +13,7 @@ interface IGoodItemComponent {
     itemDescription: string;
     pictureLink: string;
     itemPrice: number;
-    deleteItem: any;
+    deleteItem: (id: string) => void;
 }
 
 const GoodItem = forwardRef(
@@ -28,9 +28,9 @@ const GoodItem = forwardRef(
         }: IGoodItemComponent,
         ref: any,
     ) => {
-        const [imageIsLoaded, setImageIsLoaded] = useState(false);
-        const [imageSrc, setImageSrc] = useState(pictureLink);
-        const onDeleteButtonClick = () => {
+        const [imageIsLoaded, setImageIsLoaded] = useState<boolean>(false);
+        const [imageSrc, setImageSrc] = useState<string>(pictureLink);
+        const onDeleteButtonClick = (): void => {
             deleteItem(id);
         };
         const stylesForLoaded: React.CSSProperties = {

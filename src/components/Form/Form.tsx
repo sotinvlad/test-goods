@@ -3,18 +3,19 @@ import inputFieldIsEmpty from '../../helpers/inputFieldIsEmpty';
 import formatPrice from '../../helpers/formatPrice';
 import validatePrice from '../../helpers/validatePrice';
 import styles from './Form.module.scss';
+import { IGoodItem } from '../../helpers/getItems';
 
 interface IForm {
-    addItem: any;
-    setShowNotification: any;
+    addItem: (item: IGoodItem) => void;
+    setShowNotification: (showNotification: boolean) => void;
 }
 
 const Form: React.FC<IForm> = ({ addItem, setShowNotification }) => {
-    const [itemTitle, setItemTitle] = useState('');
-    const [itemDescription, setItemDescription] = useState('');
-    const [pictureLink, setPictureLink] = useState('');
-    const [itemPrice, setItemPrice] = useState('');
-    const [touched, setTouched] = useState([false, false, false]);
+    const [itemTitle, setItemTitle] = useState<string>('');
+    const [itemDescription, setItemDescription] = useState<string>('');
+    const [pictureLink, setPictureLink] = useState<string>('');
+    const [itemPrice, setItemPrice] = useState<string>('');
+    const [touched, setTouched] = useState<boolean[]>([false, false, false]);
     const onInputClick = (id: number) => {
         let newTouched = [...touched];
         newTouched[id] = true;
@@ -25,7 +26,8 @@ const Form: React.FC<IForm> = ({ addItem, setShowNotification }) => {
             itemTitle: itemTitle,
             itemDescription: itemDescription,
             pictureLink: pictureLink,
-            itemPrice: itemPrice,
+            itemPrice: Number(itemPrice),
+            id: 'id' + new Date().getTime(),
         };
         addItem(itemData);
         setItemTitle('');

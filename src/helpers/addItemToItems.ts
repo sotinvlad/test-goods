@@ -4,7 +4,6 @@ const addItemToItems = (
     itemData: IGoodItem,
     items: IGoodItem[],
 ): IGoodItem[] => {
-    itemData.id = 'id' + new Date().getTime();
     return [itemData, ...items];
 };
 

@@ -7,7 +7,7 @@ import { IGoodItem } from './../../helpers/getItems';
 
 interface IGoodsList {
     items: IGoodItem[];
-    deleteItem: any;
+    deleteItem: (id: string) => void;
 }
 
 const GoodsList: React.FC<IGoodsList> = ({ items, deleteItem }) => {
