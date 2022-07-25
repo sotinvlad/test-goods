@@ -26,6 +26,9 @@ const Header: React.FC<IHeader> = ({ sortingBy, setSortingBy }) => {
     };
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
+        return () => {
+            document.body.removeEventListener('click', handleOutsideClick);
+        };
     }, []);
     return (
         <div className={styles.Header}>
