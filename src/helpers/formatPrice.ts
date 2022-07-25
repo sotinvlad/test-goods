@@ -1,4 +1,4 @@
-const formatPrice = (price: number): string => {
+const formatPrice = (price: string): string => {
     let stringPrice = price
         .toString()
         .split('')

@@ -4,13 +4,18 @@ import formatPrice from '../../helpers/formatPrice';
 import validatePrice from '../../helpers/validatePrice';
 import styles from './Form.module.scss';
 
-const Form = ({ addItem, setShowNotification }) => {
+interface IForm {
+    addItem: any;
+    setShowNotification: any;
+}
+
+const Form: React.FC<IForm> = ({ addItem, setShowNotification }) => {
     const [itemTitle, setItemTitle] = useState('');
     const [itemDescription, setItemDescription] = useState('');
     const [pictureLink, setPictureLink] = useState('');
     const [itemPrice, setItemPrice] = useState('');
     const [touched, setTouched] = useState([false, false, false]);
-    const onInputClick = (id) => {
+    const onInputClick = (id: number) => {
         let newTouched = [...touched];
         newTouched[id] = true;
         setTouched(newTouched);

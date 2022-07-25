@@ -4,7 +4,12 @@ import getNameOfSortingFromType from '../../helpers/getNameOfSortingFromType';
 import arrowDown from './../../assets/Arrow_down.png';
 import styles from './Header.module.scss';
 
-const Header = ({ sortingBy, setSortingBy }) => {
+interface IHeader {
+    sortingBy: string;
+    setSortingBy: any;
+}
+
+const Header: React.FC<IHeader> = ({ sortingBy, setSortingBy }) => {
     const [showSortingList, setShowSortingList] = useState(false);
     return (
         <div className={styles.Header}>

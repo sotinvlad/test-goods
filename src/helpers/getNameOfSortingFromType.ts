@@ -1,6 +1,4 @@
-const getNameOfSortingFromType = (
-    sortingBy: 'default' | 'decrease' | 'increase',
-): string => {
+const getNameOfSortingFromType = (sortingBy: string): string => {
     if (sortingBy === 'decrease') {
         return 'По убыванию';
     }

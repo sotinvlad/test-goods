@@ -3,8 +3,14 @@ import FlipMove from 'react-flip-move';
 
 import GoodItem from '../GoodItem/GoodItem';
 import styles from './GoodsList.module.scss';
+import { IGoodItem } from './../../helpers/getItems';
 
-const GoodsList = ({ items, deleteItem }) => {
+interface IGoodsList {
+    items: IGoodItem[];
+    deleteItem: any;
+}
+
+const GoodsList: React.FC<IGoodsList> = ({ items, deleteItem }) => {
     return (
         <FlipMove className={styles.GoodsList}>
             {items &&
