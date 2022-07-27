@@ -4,6 +4,7 @@ import formatPrice from '../../helpers/formatPrice';
 import validatePrice from '../../helpers/validatePrice';
 import styles from './Form.module.scss';
 import { IGoodItem } from '../../helpers/getItems';
+import useFormState from '../../hooks/useFormState';
 
 interface IForm {
     addItem: (item: IGoodItem) => void;
@@ -11,35 +12,20 @@ interface IForm {
 }
 
 const Form: React.FC<IForm> = ({ addItem, setShowNotification }) => {
-    const [itemTitle, setItemTitle] = useState<string>('');
-    const [itemDescription, setItemDescription] = useState<string>('');
-    const [pictureLink, setPictureLink] = useState<string>('');
-    const [itemPrice, setItemPrice] = useState<string>('');
-    const [touched, setTouched] = useState<boolean[]>([false, false, false]);
-    const onInputClick = (id: number) => {
-        let newTouched = [...touched];
-        newTouched[id] = true;
-        setTouched(newTouched);
-    };
-    const onSubmit = () => {
-        const itemData = {
-            itemTitle: itemTitle,
-            itemDescription: itemDescription,
-            pictureLink: pictureLink,
-            itemPrice: Number(itemPrice),
-            id: 'id' + new Date().getTime(),
-        };
-        addItem(itemData);
-        setItemTitle('');
-        setItemDescription('');
-        setPictureLink('');
-        setItemPrice('');
-        setTouched([false, false, false]);
-        setShowNotification(true);
-        setTimeout(() => {
-            setShowNotification(false);
-        }, 1000);
-    };
+    const {
+        itemTitle,
+        setItemTitle,
+        itemDescription,
+        setItemDescription,
+        pictureLink,
+        setPictureLink,
+        itemPrice,
+        setItemPrice,
+        touched,
+        onInputClick,
+        onSubmit,
+    } = useFormState(addItem, setShowNotification);
+
     return (
         <div className={styles.Form}>
             <span className={`${styles.Label} ${styles.Required}`}>
